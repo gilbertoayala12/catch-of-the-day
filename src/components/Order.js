@@ -11,11 +11,16 @@ class Order extends React.Component {
           Sorry {fish ? fish.name : "fish"} is no longer available{" "}
         </li>
       );
+    } else if (fish.name === "King Crab" || fish.name === "Lobster") {
+      return (
+        <li key={key}>
+          {count} lbs {fish.name} {formatPrice(count * fish.price)} 🦀  
+        </li>
+      );
     }
     return (
       <li key={key}>
-        {count} lbs {fish.name}
-        {formatPrice(count * fish.price)} 🐟
+        {count} lbs {fish.name} {formatPrice(count * fish.price)} 🐟
       </li>
     );
   };
