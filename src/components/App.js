@@ -44,6 +44,14 @@ class App extends React.Component {
       fishes: fishes
     }); // this only updates a piece of state instead the whole of it
   };
+  updateFish = (key, updatedFish) => {
+    // 1. take a copy of the current fish
+    const fishes = { ...this.state.fishes };
+    // 2. update that states
+    fishes[key] = updatedFish;
+    // 3. set that to state
+    this.setState({ fishes: fishes });
+  };
 
   loadSampleFishes = () => {
     this.setState({
@@ -78,7 +86,9 @@ class App extends React.Component {
         <Order fishes={this.state.fishes} order={this.state.order} />
         <Inventory
           addFish={this.addFish}
+          updateFish={this.updateFish}
           loadSampleFishes={this.loadSampleFishes}
+          fishes={this.state.fishes} // para llamar el prop en otros laos tienen que llamarse igual
         />
       </div>
     );

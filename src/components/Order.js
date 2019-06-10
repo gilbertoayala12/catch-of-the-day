@@ -10,16 +10,16 @@ class Order extends React.Component {
     if (!isAvailable) {
       return (
         <li key={key}>
-          Sorry {fish ? fish.name : "fish"} is no longer available{" "}
+          Sorry {fish ? fish.name : "fish"} is no longer available{" "}  😢
         </li>
       );
-    } else if (fish.name === "King Crab" || fish.name === "Lobster") {
+    } else if (fish.name === "King Crab" || fish.name === "Lobster" || fish.name ==="Crab") {
       return (
         <li key={key}>
           {count} lbs {fish.name} {formatPrice(count * fish.price)} 🦀
         </li>
       );
-    } else if (fish.name === "Jumbo Prawns") {
+    } else if (fish.name === "Jumbo Prawns" || fish.name === "Prawns") {
       return (
         <li key={key}>
           {count} lbs {fish.name} {formatPrice(count * fish.price)} 🦐
