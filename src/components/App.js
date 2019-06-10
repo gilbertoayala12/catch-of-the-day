@@ -52,6 +52,22 @@ class App extends React.Component {
     // 3. set that to state
     this.setState({ fishes: fishes });
   };
+  deleteFish = key => {
+    // 1. take a copy of state
+    const fishes = { ...this.state.fishes };
+    // 2. update the state
+    fishes[key] = null;
+    // 3 update fish
+    this.setState({ fishes: fishes }); // para
+  };
+  deleteFromOrder = key => {
+    // copy of state
+    const order = {...this.state.order};
+    // update state
+    delete order[key]; // since were not mirroring to firebase we can just simply delete it  
+    // set state 
+    this.setState({order:order});
+  }
 
   loadSampleFishes = () => {
     this.setState({
@@ -83,10 +99,15 @@ class App extends React.Component {
             ))}
           </ul>
         </div>
-        <Order fishes={this.state.fishes} order={this.state.order} />
+        <Order
+          fishes={this.state.fishes}
+          order={this.state.order}
+          deleteFromOrder={this.deleteFromOrder}
+        />
         <Inventory
           addFish={this.addFish}
           updateFish={this.updateFish}
+          deleteFish={this.deleteFish}
           loadSampleFishes={this.loadSampleFishes}
           fishes={this.state.fishes} // para llamar el prop en otros laos tienen que llamarse igual
         />

@@ -1,6 +1,7 @@
 import React from "react";
 import { formatPrice } from "../helpers";
 class Order extends React.Component {
+  
   renderOrder = key => {
     const fish = this.props.fishes[key];
     const count = this.props.order[key];
@@ -10,25 +11,33 @@ class Order extends React.Component {
     if (!isAvailable) {
       return (
         <li key={key}>
-          Sorry {fish ? fish.name : "fish"} is no longer available{" "}  😢
+          Sorry {fish ? fish.name : "fish"} is no longer available  😢
         </li>
       );
-    } else if (fish.name === "King Crab" || fish.name === "Lobster" || fish.name ==="Crab") {
+    } else if (
+      fish.name === "King Crab" ||
+      fish.name === "Lobster" ||
+      fish.name === "Crab"
+    ) {
       return (
+        
         <li key={key}>
           {count} lbs {fish.name} {formatPrice(count * fish.price)} 🦀
+          <button onClick={()=>this.props.deleteFromOrder(key)}>✖</button> 
         </li>
       );
     } else if (fish.name === "Jumbo Prawns" || fish.name === "Prawns") {
       return (
         <li key={key}>
           {count} lbs {fish.name} {formatPrice(count * fish.price)} 🦐
+          <button onClick={()=>this.props.deleteFromOrder(key)}>✖</button> 
         </li>
       );
     }
     return (
       <li key={key}>
         {count} lbs {fish.name} {formatPrice(count * fish.price)} 🐟
+        <button onClick={()=>this.props.deleteFromOrder(key)}>✖</button> 
       </li>
     );
   };
@@ -47,7 +56,8 @@ class Order extends React.Component {
     return (
       <div className="order-wrap">
         <h2>Order</h2>
-        <ul className="order">{orderId.map(this.renderOrder)}</ul>
+        <ul className="order">{orderId.map(this.renderOrder)} </ul>
+
         <div className="total">
           Total:
           <strong>{formatPrice(total)}</strong>
