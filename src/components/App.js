@@ -62,12 +62,12 @@ class App extends React.Component {
   };
   deleteFromOrder = key => {
     // copy of state
-    const order = {...this.state.order};
+    const order = { ...this.state.order };
     // update state
-    delete order[key]; // since were not mirroring to firebase we can just simply delete it  
-    // set state 
-    this.setState({order:order});
-  }
+    delete order[key]; // since were not mirroring to firebase we can just simply delete it
+    // set state
+    this.setState({ order: order });
+  };
 
   loadSampleFishes = () => {
     this.setState({
