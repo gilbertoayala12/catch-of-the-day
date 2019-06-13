@@ -425,6 +425,7 @@ ul.order li span.count {
 }
 ul.order li span.count span {
   display: inline-block;
+  vertical-align: middle;
 }
 .order-title {
   text-align: center;
