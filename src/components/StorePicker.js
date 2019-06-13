@@ -1,7 +1,11 @@
-import React, { Fragment } from "react";
+import React from "react";
+import PropTypes from 'prop-types';
 import { getFunName } from "../helpers";
 // siempre importar react en los componentes
 class StorePicker extends React.Component {
+  static propTypes = {
+    history: PropTypes.object,
+  }
   // se escribe asi la clase para la reutilizacion
   // todas necesitan un metodo de awebo y es el render
   // nunca se toca el DOM hasta que se monta toda la aplicacion en la pagina
