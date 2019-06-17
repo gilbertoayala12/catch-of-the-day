@@ -114,6 +114,7 @@ class App extends React.Component {
           deleteFish={this.deleteFish}
           loadSampleFishes={this.loadSampleFishes}
           fishes={this.state.fishes} // para llamar el prop en otros laos tienen que llamarse igual
+          storeId ={this.props.match.params.storeId } // esto viene del react router
         />
       </div>
     );
